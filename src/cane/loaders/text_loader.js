@@ -1,6 +1,6 @@
 (function() {
-  function TextLoader(delegate) {
-    Cane.Loader.call(this, delegate)
+  function TextLoader(delegate, container) {
+    Cane.Loader.call(this, delegate, container)
   }
   TextLoader.prototype = Object.create(Cane.Loader.prototype)
 

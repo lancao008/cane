@@ -1,6 +1,5 @@
 (function() {
   function Game(options) {
-    this.assets = new Cane.AssetManager(this)
     this.element = options.document.createElement('canvas')
     this.element.width = options.width
     this.element.height = options.height
@@ -23,10 +22,10 @@
       this.nextTick()
     },
     start: function() {
-      this.assets.load()
       this.nextTick()
     },
     update: function(timeDelta) {
+      if(this.scene.completed) this.scene = this.pickNextScene();
       this.scene.update(timeDelta)
     },
     loadingComplete: function() {

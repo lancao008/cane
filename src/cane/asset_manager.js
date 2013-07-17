@@ -1,6 +1,7 @@
 (function() {
-  function AssetManager(delegate) {
+  function AssetManager(delegate, container) {
     this.delegate = delegate
+    this.container = container;
     this.loaders = []
     this.loadersCompleted = 0
 
@@ -15,7 +16,8 @@
       })
     },
     setupLoader: function(name, Constructor) {
-      var loader = new Constructor(this)
+      if(!this.container[name]) this.container[name] = {};
+      var loader = new Constructor(this, this.container[name])
       this.loaders.push(loader)
       this[name] = loader
     },

@@ -1,6 +1,6 @@
 (function() {
-  function SoundLoader(delegate) {
-    Cane.Loader.call(this, delegate)
+  function SoundLoader(delegate, container) {
+    Cane.Loader.call(this, delegate, container)
   }
   SoundLoader.prototype = Object.create(Cane.Loader.prototype)
 

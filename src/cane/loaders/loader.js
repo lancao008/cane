@@ -1,6 +1,7 @@
 (function() {
-  function Loader(delegate) {
+  function Loader(delegate, container) {
     this.delegate = delegate
+    this.container = container
     this.shortPaths = []
     this.filesCompleted = 0
   }
@@ -11,14 +12,18 @@
     },
     start: function() {
       this.loadStarted = true
-      this.shortPaths.forEach(this.loadShortPath.bind(this))
+      if(this.shortPaths.length != 0) {
+        this.shortPaths.forEach(this.loadShortPath.bind(this))
+      } else {
+        this.complete()
+      }
     },
     loadShortPath: function(shortPath) {
       var fullPath = this.prefix + shortPath + this.suffix
       this.load(shortPath, fullPath)
     },
     assetLoaded: function(shortPath, asset) {
-      this[shortPath] = asset
+      this.container[shortPath] = asset
       this.filesCompleted++
       if(this.filesCompleted == this.shortPaths.length) this.complete()
     },

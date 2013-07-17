@@ -1,6 +1,6 @@
 (function() {
-  function ImageLoader(delegate) {
-    Cane.Loader.call(this, delegate)
+  function ImageLoader(delegate, container) {
+    Cane.Loader.call(this, delegate, container)
   }
   ImageLoader.prototype = Object.create(Cane.Loader.prototype)
 
