@@ -1,16 +1,16 @@
 function Game(options) {
-  Cane.call(this, options)
+  Cane.Game.call(this, options)
   this.addImages()
   this.addSounds()
   this.addTexts()
   this.scene = this.buildScene(LoadingScene)
 }
-Game.prototype = Object.create(Cane.prototype)
+Game.prototype = Object.create(Cane.Game.prototype)
 
 Game.prototype.update = function(timeDelta) {
   if(this.loaded && !(this.scene instanceof WelcomeScene))
     this.scene = this.buildScene(WelcomeScene)
-  Cane.prototype.update.call(this, timeDelta)
+  Cane.Game.prototype.update.call(this, timeDelta)
 }
 Game.prototype.addSounds = function() {
   var sounds = this.assets.sounds
