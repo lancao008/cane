@@ -3,11 +3,12 @@ function Game(options) {
   this.addImages()
   this.addSounds()
   this.addTexts()
+  this.scene = this.buildScene(LoadingScene)
 }
 Game.prototype = Object.create(Cane.prototype)
 
 Game.prototype.update = function(timeDelta) {
-  if(this.loaded && !this.scene)
+  if(this.loaded && !(this.scene instanceof WelcomeScene))
     this.scene = this.buildScene(WelcomeScene)
   Cane.prototype.update.call(this, timeDelta)
 }
