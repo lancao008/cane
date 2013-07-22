@@ -1,9 +1,9 @@
 (function() {
   function Scene(options) {
-    Cane.Group.call(this, options)
-    this.keyboard = options.keyboard
+    Cane.Group.call(this, options);
+    this.keyboard = options.keyboard;
   }
-  Scene.prototype = Object.create(Cane.Group.prototype)
+  Scene.prototype = Object.create(Cane.Group.prototype);
   
-  Cane.Scene = Scene
-})()
+  Cane.Scene = Scene;
+})();

@@ -1,16 +1,16 @@
 (function() {
-  var Sound = function(audio) {
-    this.audio = audio
+  function Sound(audio) {
+    this.audio = audio;
   }
 
   Sound.prototype = {
     play: function() {
-      var audio = new Audio
-      audio.src = this.audio.src
-      audio.play()
-      return audio
+      var audio = new Audio();
+      audio.src = this.audio.src;
+      audio.play();
+      return audio;
     }
-  }
+  };
 
-  Cane.Sound = Sound
-})()
+  Cane.Sound = Sound;
+})();

@@ -31,27 +31,27 @@
     88: 'x',
     89: 'y',
     90: 'z',
-  }
+  };
 
   function Keyboard(document) {
-    document.addEventListener('keydown', this.keyPressed.bind(this))
-    document.addEventListener('keyup', this.keyReleased.bind(this))
-    this.keysPressed = {}
+    document.addEventListener('keydown', this.keyPressed.bind(this));
+    document.addEventListener('keyup', this.keyReleased.bind(this));
+    this.keysPressed = {};
   }
   Keyboard.prototype = {
     keyPressed: function(e) {
-      var keyName = keyCodeMap[e.keyCode]
+      var keyName = keyCodeMap[e.keyCode];
       if(keyName) {
-        this.keysPressed[keyName] = true
+        this.keysPressed[keyName] = true;
       }
     },
     keyReleased: function(e) {
-      var keyName = keyCodeMap[e.keyCode]
+      var keyName = keyCodeMap[e.keyCode];
       if(keyName && this.keysPressed[keyName]) {
-        delete this.keysPressed[keyName]
+        delete this.keysPressed[keyName];
       }
     }
-  }
+  };
 
-  Cane.Keyboard = Keyboard
-})()
+  Cane.Keyboard = Keyboard;
+})();
