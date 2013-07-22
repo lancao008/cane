@@ -1,10 +1,10 @@
 (function() {
   function Group(game) {
-    Cane.Layer.call(this, game);
+    this.game = game;
     this.children = [];
   }
 
-  Group.prototype = Object.create(Cane.Layer.prototype);
+  Group.prototype = {};
 
   Group.prototype.reorderChildren = function() {
     this.children.sort(this.sort);
@@ -15,8 +15,8 @@
   };
 
   Group.prototype.addChild = function(layer) {
-    var isLayer = layer instanceof Cane.Layer;
-    if(!isLayer) throw new Error('Only Cane.Layer objects can be added as a child.');
+    var isGroup = layer instanceof Cane.Group;
+    if(!isGroup) throw new Error('Only Cane.Group objects can be added as a child.');
     this.children.push(layer);
   };
 

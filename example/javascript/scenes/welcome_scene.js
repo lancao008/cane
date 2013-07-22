@@ -11,7 +11,7 @@ function WelcomeScene(game) {
   this.direction = 1;
   this.myX = 0;
 
-  this.myGroup = new MyGroup(this.game, 'hi My GROUP!');
+  this.myGroup = new MyLayer(this.game, 'hi My GROUP!');
   this.myGroup.x = 100;
 
   this.runSprite = new Cane.Sprite(this.game);

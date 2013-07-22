@@ -30,7 +30,7 @@
     },
     draw: function(timeDelta) {
       this.clear();
-      this.scene.transformAndDraw(timeDelta);
+      this.scene.draw(timeDelta);
     },
     clear: function() {
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
