@@ -5,6 +5,7 @@
     this.canvas.height = options.height;
     this.context = this.canvas.getContext('2d');
     this.keyboard = new Cane.Keyboard(options.document);
+    this.mouse = new Cane.Mouse(options.document, this.canvas);
     this.assets = {};
   }
 

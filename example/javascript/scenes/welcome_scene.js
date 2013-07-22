@@ -33,6 +33,10 @@ function WelcomeScene(game) {
   this.addChild(this.myGroup);
   this.addChild(this.luigiSprite);
   this.addChild(this.runSprite);
+
+  this.game.mouse.on('click', function() {
+    console.log('Clicked!', this.game.mouse.position[0], this.game.mouse.position[1]);
+  }.bind(this))
 }
 
 WelcomeScene.prototype = Object.create(Cane.Scene.prototype);

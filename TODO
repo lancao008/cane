@@ -1,2 +1,1 @@
-Mouse support
-Let Scene and Sprite inherit NodeContainer (or something like that) so that Sprite can have children.
+Touch surface support
