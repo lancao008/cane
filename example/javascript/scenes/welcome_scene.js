@@ -4,19 +4,19 @@ function WelcomeScene(game) {
   this.marioSprite = new Cane.Sprite(this.game, 'mario');
   this.luigiSprite = new Cane.Sprite(this.game, 'sub_dir/luigi');
 
-  this.marioSprite.y = 200;
-  this.luigiSprite.y = 200;
-  this.luigiSprite.x = 100;
+  this.marioSprite.position[1] = 200;
+  this.luigiSprite.position[1] = 200;
+  this.luigiSprite.position[0] = 100;
 
   this.direction = 1;
   this.myX = 0;
 
   this.myGroup = new MyLayer(this.game, 'hi My GROUP!');
-  this.myGroup.x = 100;
+  this.myGroup.position[0] = 100;
 
   this.runSprite = new Cane.Sprite(this.game);
-  this.runSprite.x = 50;
-  this.runSprite.y = 50;
+  this.runSprite.position[0] = 50;
+  this.runSprite.position[1] = 50;
 
   var animationOptions = {
     sheet: this.game.assets.images.run,
@@ -44,11 +44,11 @@ WelcomeScene.prototype = Object.create(Cane.Scene.prototype);
 WelcomeScene.prototype.update = function(timeDelta) {
   Cane.Scene.prototype.update.call(this, timeDelta);
 
-  this.runSprite.x += .4;
-  this.runSprite.y += .2;
+  this.runSprite.position[0] += .4;
+  this.runSprite.position[1] += .2;
 
   this.myX = this.myX+this.direction;
-  this.marioSprite.x = this.myX;
+  this.marioSprite.position[0] = this.myX;
   this.marioSprite.rotation = this.myX/20;
 
   this.myGroup.scale = 0.5 + (this.myX/400);
@@ -79,5 +79,5 @@ WelcomeScene.prototype.updateLuigiPosition = function() {
   else if(this.game.keyboard.keysPressed.left) {
     direction = -1;
   }
-  if(direction) this.luigiSprite.x += direction;
+  if(direction) this.luigiSprite.position[0] += direction;
 }
