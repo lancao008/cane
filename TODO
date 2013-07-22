@@ -1,4 +1,2 @@
-Replace build*() with new X({ context: this.context }) or new X(context)
 Mouse support
 Let Scene and Sprite inherit NodeContainer (or something like that) so that Sprite can have children.
-Fix <title> in example
