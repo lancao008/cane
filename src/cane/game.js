@@ -18,11 +18,11 @@
       var timeDelta;
       if(this.lastTickAt) {
         timeDelta = timestamp - this.lastTickAt;
-        this.draw(timeDelta);
       } else {
         timeDelta = 0;
       }
       this.update(timeDelta);
+      this.draw(timeDelta);
       this.lastTickAt = timestamp;
       this.nextTick();
     },
