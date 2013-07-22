@@ -15,11 +15,14 @@
       requestAnimationFrame(this.tick.bind(this));
     },
     tick: function(timestamp) {
+      var timeDelta;
       if(this.lastTickAt) {
-        var timeDelta = timestamp - this.lastTickAt;
-        this.update(timeDelta);
+        timeDelta = timestamp - this.lastTickAt;
         this.draw(timeDelta);
+      } else {
+        timeDelta = 0;
       }
+      this.update(timeDelta);
       this.lastTickAt = timestamp;
       this.nextTick();
     },
