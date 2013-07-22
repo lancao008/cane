@@ -1,12 +1,12 @@
-function MyGroup(options) {
+function MyGroup(options, secretMessage) {
   Cane.Group.call(this, options);
-  this.marioSprite = this.buildSprite('mario');
-  this.luigiSprite = this.buildSprite('sub_dir/luigi');
+  this.marioSprite = new Cane.Sprite(this.game, 'mario');
+  this.luigiSprite = new Cane.Sprite(this.game, 'sub_dir/luigi');
 
   this.addChild(this.marioSprite);
   this.addChild(this.luigiSprite);
 
-  console.log('Secret: ' + options.secretMessage);
+  console.log('Secret: ' + secretMessage);
 
   this.i = 0;
   this.direction = 1;

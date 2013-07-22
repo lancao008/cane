@@ -1,6 +1,6 @@
-function LoadingScene(options) {
-  Cane.Scene.call(this, options);
-  this.assetManager = new Cane.AssetManager(this, this.assets);
+function LoadingScene(game) {
+  Cane.Scene.call(this, game);
+  this.assetManager = new Cane.AssetManager(this, game.assets);
   this.addSounds();
   this.addImages();
   this.addTexts();

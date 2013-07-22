@@ -6,7 +6,7 @@
   };
   function initialize() {
     var game = new Game(options);
-    document.body.appendChild(game.element);
+    document.body.appendChild(game.canvas);
     game.start();
   }
   window.addEventListener('load', initialize);

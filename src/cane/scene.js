@@ -1,7 +1,6 @@
 (function() {
-  function Scene(options) {
-    Cane.Group.call(this, options);
-    this.keyboard = options.keyboard;
+  function Scene(game) {
+    Cane.Group.call(this, game);
   }
   Scene.prototype = Object.create(Cane.Group.prototype);
   

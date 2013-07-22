@@ -1,8 +1,8 @@
-function WelcomeScene(options) {
-  Cane.Scene.call(this, options);
+function WelcomeScene(game) {
+  Cane.Scene.call(this, game);
 
-  this.marioSprite = this.buildSprite('mario');
-  this.luigiSprite = this.buildSprite('sub_dir/luigi');
+  this.marioSprite = new Cane.Sprite(this.game, 'mario');
+  this.luigiSprite = new Cane.Sprite(this.game, 'sub_dir/luigi');
 
   this.marioSprite.y = 200;
   this.luigiSprite.y = 200;
@@ -11,15 +11,15 @@ function WelcomeScene(options) {
   this.direction = 1;
   this.myX = 0;
 
-  this.myGroup = this.buildGroup(MyGroup, { secretMessage: 'hi My GROUP!' });
+  this.myGroup = new MyGroup(this.game, 'hi My GROUP!');
   this.myGroup.x = 100;
 
-  this.runSprite = this.buildSprite();
+  this.runSprite = new Cane.Sprite(this.game);
   this.runSprite.x = 50;
   this.runSprite.y = 50;
 
   var animationOptions = {
-    sheet: this.assets.images.run,
+    sheet: this.game.assets.images.run,
     fps: 15,
     framesCount: 15
   };
@@ -58,21 +58,21 @@ WelcomeScene.prototype.update = function(timeDelta) {
 
   this.updateLuigiPosition();
 
-  if(this.keyboard.keysPressed.z && this.keyboard.keysPressed.down)
+  if(this.game.keyboard.keysPressed.z && this.keyboard.keysPressed.down)
     console.log('z and down pressed at the same time, zomg!');
 
-  if(this.keyboard.keysPressed.space) {
+  if(this.game.keyboard.keysPressed.space) {
     console.log('space!');
-    this.assets.sounds.swish.play();
+    this.game.assets.sounds.swish.play();
   }
 };
 
 WelcomeScene.prototype.updateLuigiPosition = function() {
   var direction;
-  if(this.keyboard.keysPressed.right) {
+  if(this.game.keyboard.keysPressed.right) {
     direction = 1;
   }
-  else if(this.keyboard.keysPressed.left) {
+  else if(this.game.keyboard.keysPressed.left) {
     direction = -1;
   }
   if(direction) this.luigiSprite.x += direction;

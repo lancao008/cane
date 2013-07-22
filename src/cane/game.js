@@ -1,11 +1,11 @@
 (function() {
   function Game(options) {
-    this.element = options.document.createElement('canvas');
-    this.element.width = options.width;
-    this.element.height = options.height;
-    this.context = this.element.getContext('2d');
+    this.canvas = options.document.createElement('canvas');
+    this.canvas.width = options.width;
+    this.canvas.height = options.height;
+    this.context = this.canvas.getContext('2d');
     this.keyboard = new Cane.Keyboard(options.document);
-    this.options = options;
+    this.assets = {};
   }
 
   Game.prototype = {
@@ -32,17 +32,8 @@
       this.clear();
       this.scene.transformAndDraw(timeDelta);
     },
-    buildScene: function(Constructor) {
-      var options = {
-        context: this.context,
-        assets: this.assets,
-        keyboard: this.keyboard
-      };
-      var scene = new Constructor(options);
-      return scene;
-    },
     clear: function() {
-      this.context.clearRect(0, 0, this.element.width, this.element.height);
+      this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
   };
 

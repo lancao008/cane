@@ -1,7 +1,7 @@
 (function() {
-  function Sprite(options) {
-    Cane.Layer.call(this, options);
-    if(options.image) this.image = options.image;
+  function Sprite(game, path) {
+    Cane.Layer.call(this, game);
+    if(path) this.image = game.assets.images[path];
   }
 
   Sprite.prototype = Object.create(Cane.Layer.prototype);

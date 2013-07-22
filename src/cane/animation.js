@@ -20,6 +20,7 @@
       this.image = this.frames[this.frameIndex];
     },
     setupFrames: function(sheet) {
+      var context;
       this.frames = [];
       var frameWidth = sheet.width/this.framesCount;
 

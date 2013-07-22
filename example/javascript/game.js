@@ -1,10 +1,10 @@
 function Game(options) {
   Cane.Game.call(this, options);
-  this.assets = {};
-  this.scene = this.buildScene(LoadingScene);
+  this.scene = new LoadingScene(this);
 }
 Game.prototype = Object.create(Cane.Game.prototype);
 
 Game.prototype.pickNextScene = function() {
-  return this.buildScene(WelcomeScene);
+  var scene = new WelcomeScene(this);
+  return scene;
 };
