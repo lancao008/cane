@@ -1,4 +1,3 @@
 Replace build*() with new X({ context: this.context }) or new X(context)
-Make more modular loading system that support loading in various stages.
 Mouse support
-How to change scenes?
+Let Scene and Sprite inherit NodeContainer (or something like that) so that Sprite can have children.
