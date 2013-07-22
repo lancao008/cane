@@ -7,6 +7,7 @@
     this.keyboard = new Cane.Keyboard(options.document);
     this.mouse = new Cane.Mouse(options.document, this.canvas);
     this.assets = {};
+    this.clearColor = 'lightgray';
   }
 
   Game.prototype = {
@@ -34,7 +35,8 @@
       this.scene.draw(timeDelta);
     },
     clear: function() {
-      this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.context.fillStyle = this.clearColor;
+      this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
   };
 
