@@ -42,6 +42,13 @@ Cane.Vector2.prototype = {
       this[1] == vector[1]
     );
   },
+  round: function() {
+    var vector = new Cane.Vector2(
+      Math.round(this[0]),
+      Math.round(this[1])
+    );
+    return vector;
+  },
   getLength: function() {
     var squareSum = Math.pow(this[0], 2) + Math.pow(this[1], 2);
     return Math.sqrt(squareSum);
