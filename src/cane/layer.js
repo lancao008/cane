@@ -6,6 +6,7 @@
     this.rotation = 0;
     this.scale = 1;
     this.context = game.context;
+    this.size = new Cane.Vector2(0, 0);
   }
 
   Layer.prototype = Object.create(Cane.Group.prototype);
