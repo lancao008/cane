@@ -21,16 +21,24 @@
   };
 
   Group.prototype.getChildAt = function(position) {
-    var child;
-    for(var i=0; this.children.length>i; i++) {
+    var child, offset, grandChild;
+    for(var i=this.children.length-1; 0<=i; i--) {
       child = this.children[i];
+      offset = child.getOffset();
+
       if(
-        child.position[0]-child.size[0]/2 <= position[0] &&
-        child.position[0]+child.size[0]/2 > position[0] &&
-        child.position[1]-child.size[1]/2 <= position[1] &&
-        child.position[1]+child.size[1]/2 > position[1]
+        offset[0] <= position[0] &&
+        offset[0]+child.size[0] > position[0] &&
+        offset[1] <= position[1] &&
+        offset[1]+child.size[1] > position[1]
       ) {
-        return child;
+        grandChild = child.getChildAt(position.subtract(offset));
+        if(grandChild) {
+          return grandChild;
+        }
+        else if(child.clickable) {
+          return child;
+        }
       }
     }
   };

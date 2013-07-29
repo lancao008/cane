@@ -12,7 +12,7 @@ Cane.Mouse = function(document, canvas) {
 Cane.Mouse.prototype = Object.create(Cane.EventEmitter);
 
 Cane.Mouse.prototype.move = function(e) {
-    this.position[0] = event.x-this.canvas.offsetLeft
+    this.position[0] = event.x-this.canvas.offsetLeft;
     this.position[1] = event.y-this.canvas.offsetTop;
 };
 

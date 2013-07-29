@@ -4,7 +4,9 @@
     this.position = new Cane.Vector2(0, 0);
     this.z = 0;
     this.rotation = 0;
+    this.anchor = new Cane.Vector2(0, 0);
     this.scale = 1;
+    this.clickable = true;
     this.context = game.context;
     this.size = new Cane.Vector2(0, 0);
   }
@@ -19,6 +21,15 @@
     this.draw();
     this.context.restore();
   };
+
+  Layer.prototype.getOffset = function() {
+    var offset = new Cane.Vector2(
+      this.position[0] - this.size[0]*this.anchor[0],
+      this.position[1] - this.size[1]*this.anchor[1]
+    );
+
+    return offset;
+  }
 
   Cane.Layer = Layer;
 })();
