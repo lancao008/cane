@@ -24,15 +24,9 @@
     var child, offset, grandChild;
     for(var i=this.children.length-1; 0<=i; i--) {
       child = this.children[i];
-      offset = child.getOffset();
 
-      if(
-        offset[0] <= position[0] &&
-        offset[0]+child.size[0] > position[0] &&
-        offset[1] <= position[1] &&
-        offset[1]+child.size[1] > position[1]
-      ) {
-        grandChild = child.getChildAt(position.subtract(offset));
+      if(child.getFootprint().contains(position)) {
+        grandChild = child.getChildAt(position.subtract(child.getOffset()));
         if(grandChild) {
           return grandChild;
         }

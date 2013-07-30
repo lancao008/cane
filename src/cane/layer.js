@@ -31,5 +31,10 @@
     return offset;
   }
 
+  Layer.prototype.getFootprint = function() {
+    var footprint = new Cane.Footprint(this.getOffset(), this.size);
+    return footprint;
+  };
+
   Cane.Layer = Layer;
 })();
