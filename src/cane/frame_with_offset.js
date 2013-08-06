@@ -1,9 +1,9 @@
-Cane.Footprint = function(position, size) {
+Cane.FrameWithOffset = function(position, size) {
   this.position = position;
   this.size = size;
 };
 
-Cane.Footprint.prototype = {
+Cane.FrameWithOffset.prototype = {
   contains: function(point) {
     var result = (
       this.position[0] <= point[0] &&

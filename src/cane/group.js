@@ -20,12 +20,18 @@
     this.children.push(layer);
   };
 
+  Group.prototype.removeChild = function(layer) {
+    var index = this.children.indexOf(layer);
+    if(index == -1) throw new Error('Layer not found. Cannot remove.');
+    this.children.splice(index, 1);
+  };
+
   Group.prototype.getChildAt = function(position) {
     var child, offset, grandChild;
     for(var i=this.children.length-1; 0<=i; i--) {
       child = this.children[i];
 
-      if(child.getFootprint().contains(position)) {
+      if(child.getFrameWithOffset().contains(position)) {
         grandChild = child.getChildAt(position.subtract(child.getOffset()));
         if(grandChild) {
           return grandChild;

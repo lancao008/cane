@@ -31,9 +31,9 @@
     return offset;
   }
 
-  Layer.prototype.getFootprint = function() {
-    var footprint = new Cane.Footprint(this.getOffset(), this.size);
-    return footprint;
+  Layer.prototype.getFrameWithOffset = function() {
+    var frame = new Cane.FrameWithOffset(this.getOffset(), this.size);
+    return frame;
   };
 
   Cane.Layer = Layer;
