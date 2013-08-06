@@ -9,7 +9,14 @@
     if(child) {
       if(child.click) child.click(position);
     }
-  }
+  };
+
+  Scene.prototype.handleHover = function(position) {
+    var child = this.getChildAt(position);
+    if(child) {
+      if(child.hover) child.hover(position);
+    }
+  };
 
   Cane.Scene = Scene;
 })();

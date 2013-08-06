@@ -9,13 +9,15 @@ Cane.Mouse = function(document, canvas) {
   canvas.addEventListener('mouseup', this.release.bind(this));
 
   this.document = document;
+  this.canvas = canvas;
 };
 
 Cane.Mouse.prototype = Object.create(Cane.EventEmitter);
 
 Cane.Mouse.prototype.move = function(e) {
-    this.position[0] = event.x-this.canvas.offsetLeft+this.document.body.scrollLeft;
-    this.position[1] = event.y-this.canvas.offsetTop+this.document.body.scrollTop;
+  this.position[0] = event.x-this.canvas.offsetLeft+this.document.body.scrollLeft;
+  this.position[1] = event.y-this.canvas.offsetTop+this.document.body.scrollTop;
+  if(e.target == this.canvas) this.emit('move');
 };
 
 Cane.Mouse.prototype.press = function(event) {

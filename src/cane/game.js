@@ -5,8 +5,7 @@
     this.canvas.height = options.height;
     this.context = this.canvas.getContext('2d');
     this.keyboard = new Cane.Keyboard(options.document);
-    this.mouse = new Cane.Mouse(options.document, this.canvas);
-    this.mouse.on('click', this.handleClick.bind(this));
+    this.setupMouse(options.document);
     this.assets = {};
     this.clearColor = 'lightgray';
   }
@@ -41,9 +40,17 @@
     handleClick: function() {
       this.scene.handleClick(this.mouse.position);
     },
+    handleHover: function() {
+      this.scene.handleHover(this.mouse.position);
+    },
     clear: function() {
       this.context.fillStyle = this.clearColor;
       this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    setupMouse: function(document) {
+      this.mouse = new Cane.Mouse(document, this.canvas);
+      this.mouse.on('click', this.handleClick.bind(this));
+      this.mouse.on('move', this.handleHover.bind(this));
     }
   };
 
