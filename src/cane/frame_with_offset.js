@@ -1,6 +1,6 @@
 Cane.FrameWithOffset = function(position, size) {
   this.position = position;
-  this.frame = new Cane.Frame(size);
+  this.frame = new Cane.Frame(size[0], size[1]);
 };
 
 Cane.FrameWithOffset.prototype = {
