@@ -31,9 +31,9 @@
     return offset;
   }
 
-  Layer.prototype.getFrameWithOffset = function() {
-    var frame = new Cane.FrameWithOffset(this.getOffset(), this.size);
-    return frame;
+  Layer.prototype.getRectangle = function() {
+    var rectangle = new Cane.Rectangle(this.getOffset(), this.size);
+    return rectangle;
   };
 
   Cane.Layer = Layer;

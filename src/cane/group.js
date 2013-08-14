@@ -31,7 +31,7 @@
     for(var i=this.children.length-1; 0<=i; i--) {
       child = this.children[i];
 
-      if(child.getFrameWithOffset().contains(position)) {
+      if(child.getRectangle().contains(position)) {
         grandChild = child.getChildAt(position.subtract(child.getOffset()));
         if(grandChild) {
           return grandChild;
