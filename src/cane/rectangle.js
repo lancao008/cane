@@ -27,3 +27,11 @@ Cane.Rectangle.prototype.overlaps = function(rectangle) {
     this.position[1] + 0 <= rectangle.position[1] + rectangle.size[1]
   );
 };
+
+Cane.Rectangle.prototype.getCenter = function() {
+  var center = new Cane.Vector2(
+    this.position[0] + this.size[0]/2,
+    this.position[1] + this.size[1]/2
+  );
+  return center;
+};
