@@ -53,6 +53,9 @@ Cane.Vector2.prototype = {
     var squareSum = Math.pow(this[0], 2) + Math.pow(this[1], 2);
     return Math.sqrt(squareSum);
   },
+  isZero: function() {
+    return this[0] == 0 && this[1] == 0;
+  },
   floor: function() {
     var vector = new Cane.Vector2(
       Math.floor(this[0]),
